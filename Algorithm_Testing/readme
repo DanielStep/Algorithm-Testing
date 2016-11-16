@@ -1,0 +1,41 @@
+Daniel Stepanenko
+
+Run Instructions:
+
+Compile using command 'make all'
+Delete o files using command 'make clean'
+
+Run using command ./run_queries with arguments in the following order:
+
+1. Unsorted heap
+2. Sorted heap by IUCR
+3. Sorted heap by ID
+4. Hash index by IUCR
+5. Hash index by ID
+
+All arguments must be present and in the above order, for example:
+
+./run_queries heap_unsorted.65536 heap_sorted_IUCR.65536 heap_sorted_ID.65536 heap_sorted_IUCR.hash.IUCR.65536 heap_sorted_ID.hash.ID.65536
+
+
+Query Maker:
+
+- Runs all queries sequentially printing out result count and time taken for each query
+
+Queries:
+
+heapQuery1, heapQuery2, heapQuery3, heapQuery4, heapQuery5 are queries replicated from the 5 queries. They may be used in the report, but were make redundant for testing purposes when the requirements changed as they are not suitable for comparison with sorted heap and hashed index.
+
+The following queries are equivalent to each other and differ in implementation depending on the data structure that they query, unsorted heap, sorted heap, or hash index on sorted heap. They can be found in sorted_queries.c, unsorted_queries.c and hash_queries.c respectively.
+
+unsortedQuery1, sortedQuery1, hashQuery1 find all records with IUCR 0810 (a theft crime) that occuried in location Street and return the count. Designed to find a specific type of crime, a relatively simple query with few checked per record evaluated.
+
+unsortedQuery2, sortedQuery2, hashQuery2 find the record with a high ID 9999952 and return the count
+
+unsortedQuery3, sortedQuery3, hashQuery3 find the record with a low ID 1309881 and return the count
+
+unsortedQuery4, sortedQuery4, HashQuery4 find all record with IUCR 0820 (a theft crime) with many many different locations. Designed to find a general type of crime, a relatively complex query which many potential checks per record evaluated.
+
+
+All queries run with no known issues, and provide the same query results.
+
